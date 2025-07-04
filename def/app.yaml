@@ -3,13 +3,38 @@ kind: Namespace
 metadata:
   name: app
 ---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: node-app
+  namespace: app
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+        - image: ghcr.io/brunopadz/node-app:1.0
+          name: node-app
+          ports:
+            - containerPort: 1337
+          env:
+            - name: VERSION
+              value: "1.0"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-app
   namespace: app
 spec:
-  replicas: 1
+  replicas: 0
   revisionHistoryLimit: 3
   selector:
     matchLabels:
