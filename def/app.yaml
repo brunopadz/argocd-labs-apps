@@ -10,6 +10,11 @@ metadata:
   namespace: app
 spec:
   replicas: 1
+  strategy:
+    blue-green:
+      activeService: node-app-svc
+      previewService: node-app-svc-preview
+      autoPromotionEnabled: false
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -22,6 +27,10 @@ spec:
       containers:
         - image: ghcr.io/brunopadz/node-app:1.0
           name: node-app
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
           ports:
             - containerPort: 1337
           env:
