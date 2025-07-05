@@ -73,3 +73,15 @@ spec:
       targetPort: 1337
   selector:
     app: node-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-svc-preview
+  namespace: app
+spec:
+  ports:
+    - port: 1337
+      targetPort: 1337
+  selector:
+    app: node-app
