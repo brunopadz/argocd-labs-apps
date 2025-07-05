@@ -11,7 +11,7 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    blue-green:
+    blueGreen:
       activeService: node-app-svc
       previewService: node-app-svc-preview
       autoPromotionEnabled: false
