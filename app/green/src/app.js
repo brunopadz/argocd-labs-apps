@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-let version = process.env.VERSION
+let version = 'green'
 
 const server = app.listen(1337)
 
