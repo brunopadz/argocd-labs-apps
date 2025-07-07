@@ -21,7 +21,7 @@ spec:
         app: node-app
     spec:
       containers:
-        - image: ghcr.io/brunopadz/node-app:blue
+        - image: ghcr.io/brunopadz/node-app:green
           name: node-app
           resources:
             requests:
