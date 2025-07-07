@@ -10,11 +10,7 @@ metadata:
   namespace: app
 spec:
   replicas: 3
-  strategy:
-    blueGreen:
-      activeService: node-app-svc
-      previewService: node-app-svc-preview
-      autoPromotionEnabled: false
+  strategy: {}
   revisionHistoryLimit: 3
   selector:
     matchLabels:
